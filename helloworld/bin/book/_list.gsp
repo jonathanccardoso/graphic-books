@@ -8,9 +8,6 @@
         <thead>
             <tr>
                 <th>
-                    #
-                </th>
-                <th>
                     Name
                 </th>
                 <th>
@@ -35,8 +32,9 @@
                 <td>${book.datePublication}</td>
                 <td>${book.genre}</td>
                 <td>
-                    <a href="#">Alterar</a>
-                    <a href="#">Excluir</a>
+                    <%-- function to exxecute function of controller --%>
+                    <g:remoteLink controller="book" action="change" update="divForm" id="${book.id}">Change</g:remoteLink>
+                    <a href="#" onclick="deleteBook('${book.id}')">Excluir</a>
                 </td>
             </tr>
         </g:each>

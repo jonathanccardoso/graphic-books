@@ -12,6 +12,60 @@ class BookController {
         render(view:"/book/index", model: [books: list])
     }
 
+    def create(){
+		Book newBook = new Book()
+        newBook.name = ""
+        newBook.author = ""
+        newBook.datePublication = new Date() // erro date
+        newBook.genre = ""
+		
+		render(template:"/book/form", model: [book: newBook])
+	}
+
+    def change(){
+		Book book = Book.get(params.id)
+		render(template:"/book/form", model: [book: book])
+	}
+
+    def list(){
+		def list = Book.list()
+		render(template:"/book/list", model:[books: list])
+	}
+	
+    def save(){
+		Book book = null
+		if (params.id) {
+			book = Book.get(params.id)
+		} else {
+			book = new Book()
+		}		
+
+		book.name = params.name
+		book.author = params.author
+		// book.datePublication = Date.parse(params.datePublication)
+        // book.datePublication = Date.parse("d/M/yyyy H:m:s", params.datePublication)
+        book.datePublication = Date.parse("MM/dd/yy", params.datePublication)
+        // book.datePublication = Date.parse("EEE MMM d HH:mm:ss zzz yyyy", params.datePublication)
+		book.genre = params.genre
+
+		book.validate()
+		if (!book.hasErrors()){
+            // save on database
+			book.save(flush:true)
+			render("Save with sucess!")
+		}else{
+			render("Wow... some wrong!")
+		}
+	}
+
+    def delete(){
+		Book book = Book.get(params.id)
+		book.delete(flush:true)
+		
+		def list = Book.list()
+		render(template:"/book/list", model:[books: list])
+	}
+
     // API
 
     // BookService bookService

@@ -63,7 +63,7 @@
     <%-- body on information each pages --%>
     <g:layoutBody/>
 
-    <footer class="footer">
+    <footer class="footer p-4 relative-bottom">
         <div class="container">
             <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
         </div>

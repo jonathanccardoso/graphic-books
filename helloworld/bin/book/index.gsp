@@ -5,7 +5,21 @@
     <title>Welcome to index</title>
 
     <%-- need lib to use remoteLink --%>
-    <g:javascript library="jquery" />	
+    <g:javascript library="jquery" />
+
+    <script type="text/javascript">
+		function loadLIst(){
+			<g:remoteFunction controller="book" action="list" update="divList" />	
+		}
+		function deleteBook(id){
+			if (confirm("Do you really want to delete?")){
+				<g:remoteFunction controller="book" action="delete" update="divList" id="'+id+'" />		
+			}
+		}
+		function cancel(){
+			jQuery("#divForm").html("")
+		}	
+    </script>
 </head>
 <body>
     <div id="content" role="main">
