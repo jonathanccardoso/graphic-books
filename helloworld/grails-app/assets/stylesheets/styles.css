@@ -1,0 +1,23 @@
+#formOrder {
+  text-align: center;
+  color: brack;
+  background: aquamarine;
+}
+
+input {
+  color: blue;
+}
+
+input[type="submit"] {
+  padding: 1em;
+  color: white;
+  background-color: black;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
