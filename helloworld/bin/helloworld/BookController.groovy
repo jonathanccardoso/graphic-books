@@ -18,6 +18,7 @@ class BookController {
         newBook.author = ""
         newBook.datePublication = new Date() // erro date
         newBook.genre = ""
+        newBook.price = 0
 		
 		render(template:"/book/form", model: [book: newBook])
 	}
@@ -44,9 +45,11 @@ class BookController {
 		book.author = params.author
 		// book.datePublication = Date.parse(params.datePublication)
         // book.datePublication = Date.parse("d/M/yyyy H:m:s", params.datePublication)
-        book.datePublication = Date.parse("MM/dd/yy", params.datePublication)
+        // book.datePublication = Date.parse("MM/dd/yy", params.datePublication)
+        book.datePublication = new Date()
         // book.datePublication = Date.parse("EEE MMM d HH:mm:ss zzz yyyy", params.datePublication)
 		book.genre = params.genre
+		book.price = params.price.toInteger()
 
 		book.validate()
 		if (!book.hasErrors()){

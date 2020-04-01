@@ -36,6 +36,12 @@
         </label>
         <input type="text" class="form-control" name="genre" value="${book.genre}" id="inputGenre">
     </div>
+    <div class="form-group">
+        <label for="inputPrice">
+            Price
+        </label>
+        <input type="text" class="form-control" name="price" value="${book.price}" id="inputPrice">
+    </div>
     <button type="submit" class="btn btn-primary">
         Submit
     </button>

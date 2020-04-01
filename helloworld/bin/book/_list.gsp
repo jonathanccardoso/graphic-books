@@ -20,6 +20,9 @@
                     Genre
                 </th>
                 <th>
+                    Price
+                </th>
+                <th>
                     Actions
                 </th>
             </tr>
@@ -31,6 +34,7 @@
                 <td>${book.author}</td>
                 <td>${book.datePublication}</td>
                 <td>${book.genre}</td>
+                <td>${book.price}</td>
                 <td>
                     <%-- function to exxecute function of controller --%>
                     <g:remoteLink controller="book" action="change" update="divForm" id="${book.id}">Change</g:remoteLink>
