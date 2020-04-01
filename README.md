@@ -1,2 +1,3 @@
-# hello-world-grails
-My first project grails
+# Graphic Books
+
+> My first project grails.
